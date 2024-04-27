@@ -6,7 +6,10 @@ import { getGuideById } from '../../lib/guide';
 import { getOpenGraphImageUrl } from '../../lib/open-graph';
 
 const guideId = 'backend-languages';
-const guide = await getGuideById('backend-languages');
+const guide = await getGuideById(guideId).catch(() => null);
+if (!guide) {
+  return Astro.redirect('/404');
+}
 
 const { frontmatter: guideData } = guide!;
 
@@ -19,7 +22,7 @@ const ogImageUrl = getOpenGraphImageUrl({
 <BaseLayout
   title={guideData.seo.title}
   description={guideData.seo.description}
-  permalink={`/backend/${guideId}`}
+  permalink={`/backend/languages`}
   canonicalUrl={guideData.canonicalUrl}
   ogImageUrl={ogImageUrl}
 >

@@ -27,8 +27,13 @@ import { Ban, FileText, X } from 'lucide-react';
 import { getUrlParams } from '../../lib/browser';
 import { Spinner } from '../ReactIcons/Spinner';
 import { GitHubIcon } from '../ReactIcons/GitHubIcon.tsx';
+import { GoogleIcon } from '../ReactIcons/GoogleIcon.tsx';
+import { YouTubeIcon } from '../ReactIcons/YouTubeIcon.tsx';
 
 type TopicDetailProps = {
+  resourceTitle?: string;
+  resourceType?: ResourceType;
+
   isEmbed?: boolean;
   canSubmitContribution: boolean;
 };
@@ -43,7 +48,7 @@ const linkTypes: Record<AllowedLinkTypes, string> = {
 };
 
 export function TopicDetail(props: TopicDetailProps) {
-  const { canSubmitContribution, isEmbed = false } = props;
+  const { canSubmitContribution, isEmbed = false, resourceTitle } = props;
 
   const [hasEnoughLinks, setHasEnoughLinks] = useState(false);
   const [contributionUrl, setContributionUrl] = useState('');
@@ -53,6 +58,7 @@ export function TopicDetail(props: TopicDetailProps) {
   const [error, setError] = useState('');
   const [topicHtml, setTopicHtml] = useState('');
   const [topicTitle, setTopicTitle] = useState('');
+  const [topicHtmlTitle, setTopicHtmlTitle] = useState('');
   const [links, setLinks] = useState<RoadmapContentDocument['links']>([]);
   const toast = useToast();
 
@@ -168,8 +174,11 @@ export function TopicDetail(props: TopicDetailProps) {
             topicDom.querySelector('[data-github-url]')!;
           const contributionUrl = urlElem?.dataset?.githubUrl || '';
 
+          const titleElem: HTMLElement = topicDom.querySelector('h1')!;
+
           setContributionUrl(contributionUrl);
           setHasEnoughLinks(links.length >= 3);
+          setTopicHtmlTitle(titleElem?.textContent || '');
         } else {
           setLinks((response as RoadmapContentDocument)?.links || []);
           setTopicTitle((response as RoadmapContentDocument)?.title || '');
@@ -198,6 +207,9 @@ export function TopicDetail(props: TopicDetailProps) {
   }
 
   const hasContent = topicHtml?.length > 0 || links?.length > 0 || topicTitle;
+  const resourceTitleForSearch = resourceTitle?.toLowerCase()?.replace(/\s+?roadmap/ig, '');
+  const googleSearchUrl = `https://www.google.com/search?q=${topicHtmlTitle?.toLowerCase()} guide for ${resourceTitleForSearch}`;
+  const youtubeSearchUrl = `https://www.youtube.com/results?search_query=${topicHtmlTitle?.toLowerCase()} for ${resourceTitleForSearch}`;
 
   return (
     <div className={'relative z-50'}>
@@ -245,7 +257,7 @@ export function TopicDetail(props: TopicDetailProps) {
 
             {/* Topic Content */}
             {hasContent ? (
-              <div className="prose prose-quoteless prose-h1:mb-2.5 prose-h1:mt-7 prose-h2:mb-3 prose-h2:mt-0 prose-h3:mb-[5px] prose-h3:mt-[10px] prose-p:mb-2 prose-p:mt-0 prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-gray-700 prose-li:m-0 prose-li:mb-0.5">
+              <div className="prose prose-h1:text-balance prose-quoteless prose-h1:mb-2.5 prose-h1:mt-7 prose-h2:mb-3 prose-h2:mt-0 prose-h3:mb-[5px] prose-h3:mt-[10px] prose-p:mb-2 prose-p:mt-0 prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-gray-700 prose-li:m-0 prose-li:mb-0.5">
                 {topicTitle && <h1>{topicTitle}</h1>}
                 <div
                   id="topic-content"
@@ -290,44 +302,68 @@ export function TopicDetail(props: TopicDetailProps) {
 
             {/* Contribution */}
             {canSubmitContribution && !hasEnoughLinks && contributionUrl && (
-              <div className="mt-8 flex-1 border-t">
-                <p className="mb-2 mt-2 text-sm leading-relaxed text-gray-400">
-                  Help us improve this introduction and submit a link to a good
-                  article, podcast, video, or any other resource that helped you
-                  understand this topic better.
-                </p>
-                <a
-                  href={contributionUrl}
-                  target={'_blank'}
-                  className="flex w-full items-center justify-center rounded-md bg-gray-800 p-2 text-sm text-white transition-colors hover:bg-black hover:text-white disabled:bg-green-200 disabled:text-black"
-                >
-                  <GitHubIcon className="mr-2 inline-block h-4 w-4 text-white" />
-                  Edit this Content
-                </a>
-              </div>
+                <div className="mt-8 mb-12 flex-1 border-t text-gray-400 text-sm">
+                  <div className='mt-3 mb-4'>
+                    <p className=''>
+                      Can't find what you're looking for? Try these pre-filled search queries:
+                    </p>
+                    <div className="mt-3 flex gap-2  text-gray-700">
+                      <a
+                          href={googleSearchUrl}
+                          target="_blank"
+                          className="text-xs flex items-center gap-2 rounded-md border border-gray-300 px-3 py-1.5 pl-2 hover:border-gray-700 hover:bg-gray-100"
+                      >
+                        <GoogleIcon className={'h-4 w-4'}/>
+                        Google
+                      </a>
+                      <a
+                          href={youtubeSearchUrl}
+                          target="_blank"
+                          className="text-xs flex items-center gap-2 rounded-md border border-gray-300 px-3 py-1.5 pl-2 hover:border-gray-700 hover:bg-gray-100"
+                      >
+                        <YouTubeIcon className={'h-4 w-4 text-red-500'}/>
+                        YouTube
+                      </a>
+                    </div>
+                  </div>
+
+                  <p className="mb-2 mt-2 leading-relaxed">
+                    Help us improve this introduction and submit a link to a good
+                    article, podcast, video, or any other self-vetted resource that helped you
+                    understand this topic better.
+                  </p>
+                  <a
+                      href={contributionUrl}
+                      target={'_blank'}
+                      className="flex w-full items-center justify-center rounded-md bg-gray-800 p-2 text-sm text-white transition-colors hover:bg-black hover:text-white disabled:bg-green-200 disabled:text-black"
+                  >
+                    <GitHubIcon className="mr-2 inline-block h-4 w-4 text-white"/>
+                    Edit this Content
+                  </a>
+                </div>
             )}
           </>
         )}
 
         {/* Error */}
         {!isContributing && !isLoading && error && (
-          <>
-            <button
-              type="button"
-              id="close-topic"
-              className="absolute right-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
-              onClick={() => {
-                setIsActive(false);
-                setIsContributing(false);
-              }}
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <div className="flex h-full flex-col items-center justify-center">
-              <Ban className="h-16 w-16 text-red-500" />
-              <p className="mt-2 text-lg font-medium text-red-500">{error}</p>
-            </div>
-          </>
+            <>
+              <button
+                  type="button"
+                  id="close-topic"
+                  className="absolute right-2.5 top-2.5 inline-flex items-center rounded-lg bg-transparent p-1.5 text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
+                  onClick={() => {
+                    setIsActive(false);
+                    setIsContributing(false);
+                  }}
+              >
+                <X className="h-5 w-5"/>
+              </button>
+              <div className="flex h-full flex-col items-center justify-center">
+                <Ban className="h-16 w-16 text-red-500"/>
+                <p className="mt-2 text-lg font-medium text-red-500">{error}</p>
+              </div>
+            </>
         )}
       </div>
       <div className="fixed inset-0 z-30 bg-gray-900 bg-opacity-50 dark:bg-opacity-80"></div>
