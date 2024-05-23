@@ -218,18 +218,19 @@ export function TopicDetail(props: TopicDetailProps) {
     'https://thenewstack.io/devops/?utm_source=roadmap.sh&utm_medium=Referral&utm_campaign=Topic';
 
   return (
-    <div className={'relative z-50'}>
+    <div className={'relative z-[90]'}>
       <div
         ref={topicRef}
         tabIndex={0}
         className="fixed right-0 top-0 z-40 flex h-screen w-full flex-col overflow-y-auto bg-white p-4 focus:outline-0 sm:max-w-[600px] sm:p-6"
       >
         {isLoading && (
-          <div className="flex w-full justify-center">
+          <div className="flex w-full h-full items-center justify-center">
             <Spinner
               outerFill="#d1d5db"
-              className="h-6 w-6 sm:h-12 sm:w-12"
+              className="h-6 w-6 sm:h-8 sm:w-8"
               innerFill="#2563eb"
+              isDualRing={false}
             />
           </div>
         )}

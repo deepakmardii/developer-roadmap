@@ -78,6 +78,12 @@ const groups: GroupType[] = [
         otherGroups: ['Web Development', 'Absolute Beginners'],
       },
       {
+        title: 'API Design',
+        link: '/api-design',
+        type: 'role',
+        otherGroups: ['Web Development'],
+      },
+      {
         title: 'QA',
         link: '/qa',
         type: 'role',
@@ -229,12 +235,12 @@ const groups: GroupType[] = [
       {
         title: 'React Native',
         link: '/react-native',
-        type: 'role',
+        type: 'skill',
       },
       {
         title: 'Flutter',
         link: '/flutter',
-        type: 'role',
+        type: 'skill',
       },
     ],
   },
