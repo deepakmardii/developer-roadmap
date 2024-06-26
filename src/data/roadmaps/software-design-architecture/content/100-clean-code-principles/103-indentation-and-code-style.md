@@ -6,4 +6,5 @@ Having a consistent indentation and code style can help to make the code more re
 
 Learn more from the following links:
 
-- [Clean Code – Formatting](https://www.baeldung.com/cs/clean-code-formatting)
+- [@article@Clean Code – Formatting](https://www.baeldung.com/cs/clean-code-formatting)
+- [@feed@Explore top posts about General Programming](https://app.daily.dev/tags/general-programming?ref=roadmapsh)

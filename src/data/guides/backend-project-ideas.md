@@ -6,7 +6,8 @@ excludedBySlug: '/backend/project-ideas'
 seo:
   title: '20 Backend Project Ideas to take you from Beginner to Pro'
   description: 'Seeking backend projects to enhance your skills? Explore our top 20 project ideas, from simple apps to complex systems. Start building today!'
-isNew: true
+  ogImageUrl: 'https://assets.roadmap.sh/guest/backend-project-ideas-ovr48.jpg'
+isNew: false
 type: 'textual'
 date: 2024-05-09
 sitemap:

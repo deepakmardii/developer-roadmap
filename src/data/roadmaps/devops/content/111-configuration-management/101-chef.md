@@ -8,5 +8,6 @@ A key tenet of Chef recipe design is the concept of [idempotence](https://en.wik
 
 Visit the following resources to learn more:
 
-- [Chef Website](https://www.chef.io/products/chef-infra)
-- [Chef Tutorial](https://www.tutorialspoint.com/chef/index.htm)
+- [@official@Chef Website](https://www.chef.io/products/chef-infra)
+- [@article@Chef Tutorial](https://www.tutorialspoint.com/chef/index.htm)
+- [@feed@Explore top posts about Chef](https://app.daily.dev/tags/chef?ref=roadmapsh)

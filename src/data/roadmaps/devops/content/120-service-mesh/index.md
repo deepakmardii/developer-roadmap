@@ -4,5 +4,6 @@ A service mesh, like the open source project Istio, is a way to control how diff
 
 Visit the following resources to learn more:
 
-- [Whats a service mesh?](https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh)
-- [The latest news about service mesh (TNS)](https://thenewstack.io/category/service-mesh/)
+- [@article@Whats a service mesh?](https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh)
+- [@article@The latest news about service mesh (TNS)](https://thenewstack.io/category/service-mesh/)
+- [@feed@Explore top posts about Service Mesh](https://app.daily.dev/tags/service-mesh?ref=roadmapsh)

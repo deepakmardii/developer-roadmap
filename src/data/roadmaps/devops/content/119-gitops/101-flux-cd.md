@@ -8,4 +8,5 @@ Flux CD is designed to be a simple and efficient way to manage cloud-native appl
 
 Visit the following resources to learn more:
 
-- [Flux CD Docs](https://docs.fluxcd.io/)
+- [@article@Flux CD Docs](https://docs.fluxcd.io/)
+- [@feed@Explore top posts about Flux](https://app.daily.dev/tags/flux?ref=roadmapsh)

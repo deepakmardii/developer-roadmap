@@ -4,5 +4,6 @@
 
 Learn more from the following links:
 
-- [Actor Model Architecture](https://awesome-architecture.com/actor-model-architecture/actor-model-architecture/)
-- [Inversion of Control](https://stackoverflow.com/a/72826245)
+- [@article@Actor Model Architecture](https://awesome-architecture.com/actor-model-architecture/actor-model-architecture/)
+- [@article@Inversion of Control](https://stackoverflow.com/a/72826245)
+- [@feed@Explore top posts about General Programming](https://app.daily.dev/tags/general-programming?ref=roadmapsh)

@@ -4,5 +4,6 @@ Windows is a graphical user interface (GUI) based operating system developed by 
 
 Visit the following resources to learn more:
 
-- [Windows Official Site](http://microsoft.com/windows)
-- [Windows Documentation for Developers](https://learn.microsoft.com/en-us/windows/)
+- [@article@Windows Official Site](http://microsoft.com/windows)
+- [@article@Windows Documentation for Developers](https://learn.microsoft.com/en-us/windows/)
+- [@feed@Explore top posts about Windows](https://app.daily.dev/tags/windows?ref=roadmapsh)

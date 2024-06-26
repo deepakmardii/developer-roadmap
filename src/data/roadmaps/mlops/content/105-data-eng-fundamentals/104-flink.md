@@ -4,4 +4,5 @@ Apache Flink is a distributed stream processing framework that is used to proces
 
 Visit the following resources to learn more:
 
-- [Apache Flink Documentation](https://flink.apache.org/)
+- [@article@Apache Flink Documentation](https://flink.apache.org/)
+- [@feed@Explore top posts about Apache Flink](https://app.daily.dev/tags/apache-flink?ref=roadmapsh)

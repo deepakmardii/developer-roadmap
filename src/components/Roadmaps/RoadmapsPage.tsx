@@ -233,6 +233,11 @@ const groups: GroupType[] = [
         type: 'role',
       },
       {
+        title: 'iOS',
+        link: '/ios',
+        type: 'role',
+      },
+      {
         title: 'React Native',
         link: '/react-native',
         type: 'skill',
@@ -303,6 +308,11 @@ const groups: GroupType[] = [
       {
         title: 'Technical Writer',
         link: '/technical-writer',
+        type: 'role',
+      },
+      {
+        title: 'Product Manager',
+        link: '/product-manager',
         type: 'role',
       },
     ],

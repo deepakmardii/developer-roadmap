@@ -4,4 +4,5 @@
 
 Learn more using the following resources:
 
-- [Creating a Vue Project](https://cli.vuejs.org/guide/creating-a-project.html)
+- [@article@Creating a Vue Project](https://cli.vuejs.org/guide/creating-a-project.html)
+- [@feed@Explore top posts about Vue.js](https://app.daily.dev/tags/vuejs?ref=roadmapsh)

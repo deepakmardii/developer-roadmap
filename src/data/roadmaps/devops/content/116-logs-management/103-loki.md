@@ -4,5 +4,6 @@ Loki is a horizontally scalable, highly available, multi-tenant log aggregation 
 
 Visit the following resources to learn more:
 
-- [Loki Website](https://grafana.com/oss/loki/)
-- [Official Documentation](https://grafana.com/docs/loki/latest/?pg=oss-loki&plcmt=quick-links)
+- [@article@Loki Website](https://grafana.com/oss/loki/)
+- [@article@Official Documentation](https://grafana.com/docs/loki/latest/?pg=oss-loki\&plcmt=quick-links)
+- [@feed@Explore top posts about Grafana](https://app.daily.dev/tags/grafana?ref=roadmapsh)
